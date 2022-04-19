@@ -24,7 +24,26 @@ const addUI = () => {
         <hr>
         </div>
         `;
+  localStorage.setItem('books', JSON.stringify(booksCollection));
   titleValue.value = '';
   authorValue.value = '';
 };
+// save data to local stoage
+const addLS = () => {
+  if (localStorage.length > 0) {
+    const bookInfo = JSON.parse(localStorage.getItem('books'));
+    bookInfo.forEach((book) => {
+      booksSection.innerHTML += `
+        <div>
+            <p>${book.title}</p>
+            <p>${book.author}</p>
+            <button class="rmv-btn" type="button">Remove</button>
+            <hr>
+            </div>
+            `;
+    });
+  }
+};
+window.addEventListener('DOMContentLoaded', addLS);
 addBook.addEventListener('click', addUI);
+
