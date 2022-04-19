@@ -48,7 +48,12 @@ const addLS = () => {
 
 const removeLS = (r) => {
   const books = JSON.parse(localStorage.getItem('books'));
-  books.filter((book) => book.id !== r);
+  books.forEach((book, index) => {
+    // eslint-disable-next-line eqeqeq
+    if (book.id == r) {
+      books.splice(index, 1);
+    }
+  });
   localStorage.setItem('books', JSON.stringify(books));
 };
 
