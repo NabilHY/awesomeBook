@@ -96,3 +96,91 @@ h1 {
   width: 20%;
   float: right !important;
 }
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(0, 75, 0);
+}
+
+.nav h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: xx-large;
+  color: #fff;
+}
+
+.anchors {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.anchors a {
+  font-family: 'Fredoka', sans-serif;
+  font-size: large;
+  padding: 0 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.anchors a:hover {
+  color: black;
+}
+
+.book-add h2 {
+  text-align: center;
+  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka', sans-serif;
+  font-size: xx-large;
+}
+
+.contact {
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.contact h2 {
+  text-align: center;
+  font-family: 'Fredoka', sans-serif;
+  font-family: 'Fredoka', sans-serif;
+  font-size: xxx-large;
+}
+
+.contact p {
+  font-family: 'Fredoka', sans-serif;
+  font-size: xx-large;
+  text-align: center;
+  padding: 0 35px;
+  color: #000;
+}
+
+.contact ul {
+  font-family: 'Fredoka', sans-serif;
+  font-size: x-large;
+  padding: 4% 22%;
+  color: #000;
+  text-align: left;
+}
+
+.contact ul li {
+  font-family: 'Fredoka', sans-serif;
+  font-size: x-large;
+  padding: 3% 0;
+  color: #000;
+  text-align: left;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(109, 31, 0);
+  font-family: 'Fredoka', sans-serif;
+  font-size: x-large;
+  text-align: center;
+  color: #fff;
+  padding: 1em 0;
+}
