@@ -1,5 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  margin: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    height: 100vh;
 }
 
 h1 {
@@ -8,6 +17,7 @@ h1 {
 }
 
 .container {
+  border : '1px dotted rgb(241, 19, 3)';
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -163,6 +173,7 @@ h1 {
   padding: 4% 22%;
   color: #000;
   text-align: left;
+  margin: 1%;
 }
 
 .contact ul li {
@@ -178,10 +189,18 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgb(109, 31, 0);
+  background-color: rgb(0, 75, 0);
   font-family: 'Fredoka', sans-serif;
   font-size: x-large;
   text-align: center;
   color: #fff;
-  padding: 1em 0;
+}
+
+#date {
+  font-family: 'Fredoka', sans-serif;
+  font-size: large;
+  padding: 0 15px;
+  color: rgb(8, 8, 8);
+  cursor: pointer;
+  text-align: right;
 }

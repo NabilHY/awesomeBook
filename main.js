@@ -5,6 +5,8 @@ const booksSection = document.querySelector('.container');
 const addBook = document.querySelector('.add-btn');
 const titleValue = document.getElementById('title');
 const authorValue = document.getElementById('author');
+
+
 class Books {
   constructor(title, author) {
     this.title = title;
@@ -50,6 +52,8 @@ class Methods {
               `;
       });
     }
+    const cd = new Date();
+    document.getElementById('date').innerHTML = cd;
   }
 
   static removeLS(r) {
@@ -82,29 +86,28 @@ addBook.addEventListener('click', (e) => {
 // select sections
 const viewBooks = document.querySelector('#book-list');
 const viewAddBook = document.querySelector('#add-new');
-const  vieContact = document.querySelector('#contact');
-// 
+const vieContact = document.querySelector('#contact');
+//
 const displayBookSec = document.querySelector('.container');
-const  fieldAddSec = document.querySelector('.field-add');
-const contactSec =document.querySelector('.contact');
+const fieldAddSec = document.querySelector('.field-add');
+const contactSec = document.querySelector('.contact');
 // add event listners
 console.log(displayBookSec);
-viewBooks.addEventListener('click', () =>{
-  viewBooks.style.display = "block";
-  displayBookSec.style.display = "flex";
-  fieldAddSec.style.display = "none";
-  contactSec.style.display = "none";
-} );
+viewBooks.addEventListener('click', () => {
+  viewBooks.style.display = 'block';
+  displayBookSec.style.display = 'flex';
+  fieldAddSec.style.display = 'none';
+  contactSec.style.display = 'none';
+});
 
-viewAddBook.addEventListener('click', () =>{
-  fieldAddSec.style.display = "flex";
-  displayBookSec.style.display = "none";
-  contactSec.style.display = "none";
-} );
+viewAddBook.addEventListener('click', () => {
+  fieldAddSec.style.display = 'flex';
+  displayBookSec.style.display = 'none';
+  contactSec.style.display = 'none';
+});
 
-vieContact.addEventListener('click', () =>{
-  contactSec.style.display = "flex";
-  fieldAddSec.style.display = "none";
-  displayBookSec.style.display = "none";
-} );
-
+vieContact.addEventListener('click', () => {
+  contactSec.style.display = 'flex';
+  fieldAddSec.style.display = 'none';
+  displayBookSec.style.display = 'none';
+});
