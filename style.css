@@ -149,6 +149,7 @@ h2 {
   display: none;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 100px;
   gap: 80px;
 }
 
@@ -203,4 +204,15 @@ footer {
   color: rgb(8, 8, 8);
   cursor: pointer;
   text-align: right;
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.alert p {
+  font-family: 'Fredoka', sans-serif;
+  color: red;
 }

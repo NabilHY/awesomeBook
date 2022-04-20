@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable max-classes-per-file */
 // Create a function to add a new book to the collection, with title and author.
 // DOM Selectors
@@ -78,8 +79,34 @@ booksSection.addEventListener('click', (e) => {
 
 window.addEventListener('DOMContentLoaded', Methods.addLS);
 addBook.addEventListener('click', (e) => {
-  e.preventDefault();
-  Methods.addUI();
+  const alertSection = document.querySelector('.alert');
+  const message = document.createElement('p');
+  if (titleValue.value === '' && authorValue.value === '') {
+    e.preventDefault();
+    message.innerText = 'Please Add your book details.';
+    alertSection.append(message);
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 3000);
+  } else {
+    e.preventDefault();
+    Methods.addUI();
+    message.innerText = 'Added succesfully, click here to access display the books list';
+    message.style.color = 'green';
+    message.style.cursor = 'pointer';
+    alertSection.append(message);
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 5000);
+    message.addEventListener('click', () => {
+      viewBooks.style.display = 'block';
+      displayBookSec.style.display = 'flex';
+      fieldAddSec.style.display = 'none';
+      contactSec.style.display = 'none';
+    });
+    titleValue.value = '';
+    authorValue.value = '';
+  }
 });
 
 // select sections
