@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable max-classes-per-file */
 // Create a function to add a new book to the collection, with title and author.
 // DOM Selectors
@@ -5,6 +6,7 @@ const booksSection = document.querySelector('.container');
 const addBook = document.querySelector('.add-btn');
 const titleValue = document.getElementById('title');
 const authorValue = document.getElementById('author');
+
 class Books {
   constructor(title, author) {
     this.title = title;
@@ -50,6 +52,8 @@ class Methods {
               `;
       });
     }
+    const cd = new Date();
+    document.getElementById('date').innerHTML = cd;
   }
 
   static removeLS(r) {
@@ -75,6 +79,60 @@ booksSection.addEventListener('click', (e) => {
 
 window.addEventListener('DOMContentLoaded', Methods.addLS);
 addBook.addEventListener('click', (e) => {
-  e.preventDefault();
-  Methods.addUI();
+  const alertSection = document.querySelector('.alert');
+  const message = document.createElement('p');
+  if (titleValue.value === '' && authorValue.value === '') {
+    e.preventDefault();
+    message.innerText = 'Please Add your book details.';
+    alertSection.append(message);
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 3000);
+  } else {
+    e.preventDefault();
+    Methods.addUI();
+    message.innerText = 'Added succesfully, click here to access display the books list';
+    message.style.color = 'green';
+    message.style.cursor = 'pointer';
+    alertSection.append(message);
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 5000);
+    message.addEventListener('click', () => {
+      viewBooks.style.display = 'block';
+      displayBookSec.style.display = 'flex';
+      fieldAddSec.style.display = 'none';
+      contactSec.style.display = 'none';
+    });
+    titleValue.value = '';
+    authorValue.value = '';
+  }
+});
+
+// select sections
+const viewBooks = document.querySelector('#book-list');
+const viewAddBook = document.querySelector('#add-new');
+const vieContact = document.querySelector('#contact');
+//
+const displayBookSec = document.querySelector('.container');
+const fieldAddSec = document.querySelector('.field-add');
+const contactSec = document.querySelector('.contact');
+// add event listners
+viewBooks.addEventListener('click', () => {
+  viewBooks.style.display = 'block';
+  displayBookSec.style.display = 'flex';
+  fieldAddSec.style.display = 'none';
+  contactSec.style.display = 'none';
+});
+
+viewAddBook.addEventListener('click', () => {
+  fieldAddSec.style.display = 'flex';
+  displayBookSec.style.display = 'none';
+  contactSec.style.display = 'none';
+});
+
+vieContact.addEventListener('click', () => {
+  contactSec.style.display = 'flex';
+  fieldAddSec.style.display = 'none';
+  displayBookSec.style.display = 'none';
 });
