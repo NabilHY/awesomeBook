@@ -1,5 +1,98 @@
-* {
+body {
   margin: 0;
-  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 1px;
+  margin: 2%;
+}
+
+.items {
+  font-family: 'Fredoka', sans-serif;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  align-items: center;
+}
+
+.items p {
+  width: 100%;
+  text-align: center;
+  font-size: x-large;
+}
+
+.field-add {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 8px auto;
+  text-align: center;
+}
+
+#add-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#add-form input {
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-size: large;
+}
+
+#add-form button {
+  background-color: #ffd9008d;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
   box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  outline: none;
+  text-align: center;
+  white-space: nowrap;
+  padding: 15px 25px;
+}
+
+.rmv-btn {
+  background-color: #f00;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 400;
+  outline: none;
+  text-align: center;
+  white-space: nowrap;
+  padding: 10px 20px;
+}
+
+#add-form button:hover {
+  background-color: black;
+  color: #fffffefa;
+}
+
+.filed-title {
+  text-align: center;
+}
+
+.add-btn {
+  color:rgba(255, 255, 255, 0.4);
+  width: 20%;
+  float: right !important;
 }

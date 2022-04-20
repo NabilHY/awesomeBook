@@ -5,7 +5,6 @@ const booksSection = document.querySelector('.container');
 const addBook = document.querySelector('.add-btn');
 const titleValue = document.getElementById('title');
 const authorValue = document.getElementById('author');
-
 class Books {
   constructor(title, author) {
     this.title = title;
@@ -25,12 +24,12 @@ class Methods {
     const book = new Books(titleValue.value, authorValue.value);
     booksCollection.push(book);
     booksSection.innerHTML += `
-        <div>
+        <div class="items">
             <p>${book.title}</p>
             <p>${book.author}</p>
-            <button class="rmv-btn" data-id=${book.id} type="button">Remove</button>
+            <button class="rmv-btn" data-id=${book.id} type="button">Remove</button><br/><br/>
             <hr>
-            </div>
+        </div>
             `;
     localStorage.setItem('books', JSON.stringify(booksCollection));
     titleValue.value = '';
@@ -42,12 +41,12 @@ class Methods {
       const bookInfo = JSON.parse(localStorage.getItem('books'));
       bookInfo.forEach((book) => {
         booksSection.innerHTML += `
-          <div>
+          <div class="items">
               <p>${book.title}</p>
               <p>${book.author}</p>
-              <button class="rmv-btn" data-id=${book.id} type="button">Remove</button>
+              <button class="rmv-btn" data-id=${book.id} type="button">Remove</button><br/><br/>
               <hr>
-              </div>
+          </div>
               `;
       });
     }
@@ -75,4 +74,7 @@ booksSection.addEventListener('click', (e) => {
 });
 
 window.addEventListener('DOMContentLoaded', Methods.addLS);
-addBook.addEventListener('click', Methods.addUI);
+addBook.addEventListener('click', (e) => {
+  e.preventDefault();
+  Methods.addUI();
+});
