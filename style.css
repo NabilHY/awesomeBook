@@ -4,20 +4,20 @@
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
   font-family: 'Fredoka', sans-serif;
 }
 
 .container {
-  border : '1px dotted rgb(241, 19, 3)';
   display: flex;
   flex-direction: column;
   list-style: none;

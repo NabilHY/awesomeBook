@@ -6,7 +6,6 @@ const addBook = document.querySelector('.add-btn');
 const titleValue = document.getElementById('title');
 const authorValue = document.getElementById('author');
 
-
 class Books {
   constructor(title, author) {
     this.title = title;
@@ -92,7 +91,6 @@ const displayBookSec = document.querySelector('.container');
 const fieldAddSec = document.querySelector('.field-add');
 const contactSec = document.querySelector('.contact');
 // add event listners
-console.log(displayBookSec);
 viewBooks.addEventListener('click', () => {
   viewBooks.style.display = 'block';
   displayBookSec.style.display = 'flex';
