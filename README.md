@@ -2,13 +2,14 @@
 
 # Awesome Books
 
-> A book-list project from Microverse. The user can add a book to the list by providing a title and an author. The user can delete from the list by clicking the delete button. Under the navbar the current date is displayed.
+> "Awesome books" is a simple website that displays a list of books and allows you to add and remove books from that list. 
+> Building this apl data using JavaScript. Loading dynamic content using navigation links. 
 
 ## Built With
 
 - HTML
 - CSS
-- JavaScript
+- Vanilla JavaScript
 
 
 ## Getting Started
