@@ -1,68 +1,80 @@
-const booksCollection = [];
-
+/* eslint-disable max-classes-per-file */
 // Create a function to add a new book to the collection, with title and author.
 // DOM Selectors
 const booksSection = document.querySelector('.container');
 const addBook = document.querySelector('.add-btn');
 const titleValue = document.getElementById('title');
 const authorValue = document.getElementById('author');
-
-function Books(title, author) {
-  this.title = title;
-  this.author = author;
-  this.id = booksCollection.length + 1;
+class Books {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = Date.now();
+  }
 }
 
-const addUI = () => {
-  const book = new Books(titleValue.value, authorValue.value);
-  booksCollection.push(book);
-  booksSection.innerHTML += `
-    <div>
-        <p>${book.title}</p>
-        <p>${book.author}</p>
-        <button class="rmv-btn" data-id=${book.id} type="button">Remove</button>
-        <hr>
-        </div>
-        `;
-  localStorage.setItem('books', JSON.stringify(booksCollection));
-  titleValue.value = '';
-  authorValue.value = '';
-};
-
-// save data to local stoage
-const addLS = () => {
-  if (localStorage.length > 0) {
-    const bookInfo = JSON.parse(localStorage.getItem('books'));
-    bookInfo.forEach((book) => {
-      booksSection.innerHTML += `
-        <div>
+class Methods {
+  static addUI() {
+    let booksCollection;
+    if (localStorage.getItem('books') === null) {
+      booksCollection = [];
+    } else {
+      booksCollection = JSON.parse(localStorage.getItem('books'));
+    }
+    const book = new Books(titleValue.value, authorValue.value);
+    booksCollection.push(book);
+    booksSection.innerHTML += `
+        <div class="items">
             <p>${book.title}</p>
             <p>${book.author}</p>
-            <button class="rmv-btn" data-id=${book.id} type="button">Remove</button>
+            <button class="rmv-btn" data-id=${book.id} type="button">Remove</button><br/><br/>
             <hr>
-            </div>
+        </div>
             `;
-    });
+    localStorage.setItem('books', JSON.stringify(booksCollection));
+    titleValue.value = '';
+    authorValue.value = '';
   }
-};
 
-const removeLS = (r) => {
-  const books = JSON.parse(localStorage.getItem('books'));
-  books.forEach((book, index) => {
-    // eslint-disable-next-line eqeqeq
-    if (book.id == r) {
-      books.splice(index, 1);
+  static addLS() {
+    if (localStorage.length > 0) {
+      const bookInfo = JSON.parse(localStorage.getItem('books'));
+      bookInfo.forEach((book) => {
+        booksSection.innerHTML += `
+          <div class="items">
+              <p>${book.title}</p>
+              <p>${book.author}</p>
+              <button class="rmv-btn" data-id=${book.id} type="button">Remove</button><br/><br/>
+              <hr>
+          </div>
+              `;
+      });
     }
-  });
-  localStorage.setItem('books', JSON.stringify(books));
-};
+  }
+
+  static removeLS(r) {
+    const books = JSON.parse(localStorage.getItem('books'));
+    books.forEach((book, index) => {
+      // eslint-disable-next-line eqeqeq
+      if (book.id == r) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+}
+
+// save data to local stoage
 
 booksSection.addEventListener('click', (e) => {
   if (e.target.classList.contains('rmv-btn')) {
     e.target.parentElement.remove();
-    removeLS(e.target.getAttribute('data-id'));
+    Methods.removeLS(e.target.getAttribute('data-id'));
   }
 });
 
-window.addEventListener('DOMContentLoaded', addLS);
-addBook.addEventListener('click', addUI);
+window.addEventListener('DOMContentLoaded', Methods.addLS);
+addBook.addEventListener('click', (e) => {
+  e.preventDefault();
+  Methods.addUI();
+});
