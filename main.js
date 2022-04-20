@@ -78,3 +78,33 @@ addBook.addEventListener('click', (e) => {
   e.preventDefault();
   Methods.addUI();
 });
+
+// select sections
+const viewBooks = document.querySelector('#book-list');
+const viewAddBook = document.querySelector('#add-new');
+const  vieContact = document.querySelector('#contact');
+// 
+const displayBookSec = document.querySelector('.container');
+const  fieldAddSec = document.querySelector('.field-add');
+const contactSec =document.querySelector('.contact');
+// add event listners
+console.log(displayBookSec);
+viewBooks.addEventListener('click', () =>{
+  viewBooks.style.display = "block";
+  displayBookSec.style.display = "block";
+  fieldAddSec.style.display = "none";
+  contactSec.style.display = "none";
+} );
+
+viewAddBook.addEventListener('click', () =>{
+  fieldAddSec.style.display = "block";
+  displayBookSec.style.display = "none";
+  contactSec.style.display = "none";
+} );
+
+vieContact.addEventListener('click', () =>{
+  contactSec.style.display = "block";
+  fieldAddSec.style.display = "none";
+  displayBookSec.style.display = "none";
+} );
+
