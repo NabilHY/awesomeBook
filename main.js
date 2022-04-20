@@ -91,19 +91,19 @@ const contactSec =document.querySelector('.contact');
 console.log(displayBookSec);
 viewBooks.addEventListener('click', () =>{
   viewBooks.style.display = "block";
-  displayBookSec.style.display = "block";
+  displayBookSec.style.display = "flex";
   fieldAddSec.style.display = "none";
   contactSec.style.display = "none";
 } );
 
 viewAddBook.addEventListener('click', () =>{
-  fieldAddSec.style.display = "block";
+  fieldAddSec.style.display = "flex";
   displayBookSec.style.display = "none";
   contactSec.style.display = "none";
 } );
 
 vieContact.addEventListener('click', () =>{
-  contactSec.style.display = "block";
+  contactSec.style.display = "flex";
   fieldAddSec.style.display = "none";
   displayBookSec.style.display = "none";
 } );
